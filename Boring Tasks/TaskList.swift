@@ -33,6 +33,16 @@ extension TaskList {
     }
 }
 
+extension TaskItem {
+    public var history: [TaskActivity] {
+        let set = activities as? Set<TaskActivity> ?? []
+        
+        return set.sorted {
+            ($0.date ?? Date()) < ($1.date ?? Date())
+        }
+    }
+}
+
 extension Collection where Element == TaskList, Index == Int {
     func delete(at indices: IndexSet, from managedObjectContext: NSManagedObjectContext) {
         indices.forEach { managedObjectContext.delete(self[$0]) }       

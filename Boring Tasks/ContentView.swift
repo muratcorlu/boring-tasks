@@ -10,8 +10,7 @@ import SwiftUI
 
 private let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .short
-//    dateFormatter.timeStyle = .medium
+    dateFormatter.dateStyle = .medium
     return dateFormatter
 }()
 
@@ -35,7 +34,6 @@ struct ContentView: View {
                         Image(systemName: "plus")
                             .frame(width: 30, height: 44.0)
                     }.sheet(isPresented: $addListModal, content: {
-                        Text("Add Item").font(.title)
                         ListEditView(closeAction: {
                             self.addListModal = false
                         }, doneAction: { title in
@@ -101,12 +99,67 @@ struct DetailView: View {
     var body: some View {
         List {
             ForEach(taskList.itemsArray, id: \.self) { item in
-                HStack {
-                    Text(item.title!)
-                    Spacer()
-                    Text("\(item.due!, formatter: dateFormatter)")
-                        .font(.caption)
-                        .foregroundColor(Color.red)
+                VStack {
+                    HStack {
+                        Text(item.title!)
+                        Spacer()
+                        Text("\(item.due!, formatter: dateFormatter)")
+                            .font(.caption)
+                            .foregroundColor(Color.red)
+                    }
+                    HStack {
+                        ForEach(item.history, id: \.self) { activity in
+                            RoundedRectangle(cornerRadius: 10).frame(width: 10, height: 10, alignment: .leading).foregroundColor(activity.type == "done" ? .blue : .gray)
+                        }
+                        Spacer()
+                    }
+                }.contextMenu {
+                    Button(action: {
+                        let newActivity = TaskActivity(context: self.viewContext)
+                        newActivity.date = Date()
+                        newActivity.item = item
+                        newActivity.type = "done"
+                        newActivity.score = item.score
+                        
+                        let periodStr = item.period!
+                        let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
+                        
+                        item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                        
+                        do {
+                            try self.viewContext.save()
+                        } catch {
+                            print("error when set done")
+                        }
+                    }) {
+                        HStack {
+                            Text("Done")
+                            Image(systemName: "checkmark.circle")
+                        }
+                    }
+                    Button(action: {
+                        let newActivity = TaskActivity(context: self.viewContext)
+                        newActivity.date = Date()
+                        newActivity.item = item
+                        newActivity.type = "skip"
+                        newActivity.score = 0
+                        
+                        let periodStr = item.period!
+                        let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
+                        
+                        item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                        
+                        do {
+                            try self.viewContext.save()
+                        } catch {
+                            print("error when set done")
+                        }
+                    }) {
+                        HStack {
+                            Text("Skip")
+                            Image(systemName: "chevron.right.2")
+                        }
+                    }
                 }
             }.onDelete(perform: { indices in
                 indices.forEach { self.viewContext.delete(self.taskList.itemsArray[$0]) }
@@ -117,7 +170,13 @@ struct DetailView: View {
                     print("error")
                 }
             })
-
+            
+            Section {
+                HStack {
+                    RoundedRectangle(cornerRadius: 10).frame(width: 10, height: 10, alignment: .leading).foregroundColor(.blue)
+                    Text("Murat").foregroundColor(.blue)
+                }
+            }
             Section {
                 Button(action: { print("removed") } ) {
                     Text("Show Done Items")
