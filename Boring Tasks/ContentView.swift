@@ -10,28 +10,47 @@ import SwiftUI
 
 private let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .medium
+    dateFormatter.dateStyle = .short
+//    dateFormatter.timeStyle = .medium
     return dateFormatter
 }()
 
 struct ContentView: View {
     @Environment(\.managedObjectContext)
-    var viewContext   
+    var viewContext
  
+    @State var addListModal:Bool = false
+
     var body: some View {
         NavigationView {
             MasterView()
-                .navigationBarTitle(Text("Master"))
+                .navigationBarTitle(Text("Boring Tasks"))
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing: Button(
                         action: {
-                            withAnimation { Event.create(in: self.viewContext) }
+                            self.addListModal = true
                         }
                     ) { 
                         Image(systemName: "plus")
-                    }
+                            .frame(width: 30, height: 44.0)
+                    }.sheet(isPresented: $addListModal, content: {
+                        Text("Add Item").font(.title)
+                        ListEditView(closeAction: {
+                            self.addListModal = false
+                        }, doneAction: { title in
+                            let newList = TaskList(context: self.viewContext)
+                            newList.title = title
+                            
+                            do {
+                                try self.viewContext.save()
+                            } catch {
+                                print("errorrrrrrrr")
+                            }
+                            
+                            self.addListModal = false
+                        })
+                    })
                 )
             Text("Detail view content goes here")
                 .navigationBarTitle(Text("Detail"))
@@ -41,34 +60,102 @@ struct ContentView: View {
 
 struct MasterView: View {
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Event.timestamp, ascending: true)], 
+        entity: TaskList.entity(),
+        sortDescriptors: [],
         animation: .default)
-    var events: FetchedResults<Event>
+    var lists: FetchedResults<TaskList>
 
     @Environment(\.managedObjectContext)
     var viewContext
 
     var body: some View {
         List {
-            ForEach(events, id: \.self) { event in
+            ForEach(lists, id: \.self) { list in
                 NavigationLink(
-                    destination: DetailView(event: event)
+                    destination: DetailView(taskList: list)
                 ) {
-                    Text("\(event.timestamp!, formatter: dateFormatter)")
+                    Text(list.title ?? "Unknown")
                 }
-            }.onDelete { indices in
-                self.events.delete(at: indices, from: self.viewContext)
-            }
+            }.onDelete(perform: { indices in
+                indices.forEach { self.viewContext.delete(self.lists[$0]) }
+                
+                do {
+                   try self.viewContext.save()
+                } catch {
+                    print("error")
+                }
+            })
         }
     }
 }
 
 struct DetailView: View {
-    @ObservedObject var event: Event
+    @Environment(\.managedObjectContext)
+    var viewContext
 
+    @ObservedObject var taskList: TaskList
+    @State private var showPopover: Bool = false
+
+    @State var isModal: Bool = false
+    
     var body: some View {
-        Text("\(event.timestamp!, formatter: dateFormatter)")
-            .navigationBarTitle(Text("Detail"))
+        List {
+            ForEach(taskList.itemsArray, id: \.self) { item in
+                HStack {
+                    Text(item.title!)
+                    Spacer()
+                    Text("\(item.due!, formatter: dateFormatter)")
+                        .font(.caption)
+                        .foregroundColor(Color.red)
+                }
+            }.onDelete(perform: { indices in
+                indices.forEach { self.viewContext.delete(self.taskList.itemsArray[$0]) }
+                
+                do {
+                   try self.viewContext.save()
+                } catch {
+                    print("error")
+                }
+            })
+
+            Section {
+                Button(action: { print("removed") } ) {
+                    Text("Show Done Items")
+                }
+            }
+        }
+
+        .listStyle(GroupedListStyle())
+
+        .navigationBarTitle(Text(taskList.title!))
+        .navigationBarItems(
+            trailing: Button(
+                action: {
+                    self.isModal = true
+                }
+            ) {
+                Image(systemName: "plus")
+                    .frame(width: 30, height: 44.0)
+            }.sheet(isPresented: $isModal, content: {
+                ItemEditView(closeAction: {
+                    self.isModal = false
+                }, doneAction: { title, period in
+                    let newList = TaskItem(context: self.viewContext)
+                    newList.title = title
+                    newList.list = self.taskList
+                    newList.period = "\(period)D"
+                    newList.due = Calendar.current.date(byAdding: .day, value: period, to: Date())!
+                    
+                    do {
+                        try self.viewContext.save()
+                    } catch {
+                        print("errorrrrrrrr")
+                    }
+                    
+                    self.isModal = false
+                })
+            })
+        )
     }
 }
 
