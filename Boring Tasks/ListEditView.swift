@@ -15,6 +15,8 @@ struct ListEditView: View {
     
     var body: some View {
         Form {
+            Text("Add List")
+            
             Section {
                 TextField("List Title",
                           text: $title)
@@ -33,7 +35,7 @@ struct ListEditView: View {
                     Text("Cancel")
                 })
             }
-        }.navigationBarTitle(Text("Add List"))
+        }
     }
     
 }

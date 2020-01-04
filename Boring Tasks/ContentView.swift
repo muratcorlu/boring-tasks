@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 private let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
@@ -33,29 +34,14 @@ struct ContentView: View {
                     ) { 
                         Image(systemName: "plus")
                             .frame(width: 30, height: 44.0)
-                    }.sheet(isPresented: $addListModal, content: {
-                        ListEditView(closeAction: {
-                            self.addListModal = false
-                        }, doneAction: { title in
-                            let newList = TaskList(context: self.viewContext)
-                            newList.title = title
-                            
-                            do {
-                                try self.viewContext.save()
-                            } catch {
-                                print("errorrrrrrrr")
-                            }
-                            
-                            self.addListModal = false
-                        })
-                    })
+                    }
                 )
             Text("Detail view content goes here")
                 .navigationBarTitle(Text("Detail"))
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
 }
-
+    
 struct MasterView: View {
     @FetchRequest(
         entity: TaskList.entity(),
@@ -66,23 +52,50 @@ struct MasterView: View {
     @Environment(\.managedObjectContext)
     var viewContext
 
+    @State var addListModal:Bool = false
+
     var body: some View {
-        List {
-            ForEach(lists, id: \.self) { list in
-                NavigationLink(
-                    destination: DetailView(taskList: list)
-                ) {
-                    Text(list.title ?? "Unknown")
-                }
-            }.onDelete(perform: { indices in
-                indices.forEach { self.viewContext.delete(self.lists[$0]) }
-                
-                do {
-                   try self.viewContext.save()
-                } catch {
-                    print("error")
-                }
-            })
+        VStack {
+            List {
+                ForEach(lists, id: \.self) { list in
+                    NavigationLink(
+                        destination: DetailView(taskList: list)
+                    ) {
+                        Text(list.title ?? "Unknown")
+                    }
+                }.onDelete(perform: { indices in
+                    indices.forEach { self.viewContext.delete(self.lists[$0]) }
+                    
+                    do {
+                       try self.viewContext.save()
+                    } catch {
+                        print("error")
+                    }
+                })
+            }
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.addListModal = true
+                }) {
+                    Text("Add List")
+                }.sheet(isPresented: $addListModal, content: {
+                    ListEditView(closeAction: {
+                        self.addListModal = false
+                    }, doneAction: { title in
+                        let newList = TaskList(context: self.viewContext)
+                        newList.title = title
+                        
+                        do {
+                            try self.viewContext.save()
+                        } catch {
+                            print("errorrrrrrrr")
+                        }
+                        
+                        self.addListModal = false
+                    })
+                })
+            }.padding()
         }
     }
 }
