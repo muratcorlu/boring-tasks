@@ -20,6 +20,19 @@
 		7DB8CCFD23BF4ADC005400C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7D14E22C23C2076B00BBE97C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7D31990A23BF8BF700D03649 /* ItemEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditView.swift; sourceTree = "<group>"; };
 		7D31993C23C0070A00D03649 /* ListEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditView.swift; sourceTree = "<group>"; };
@@ -111,6 +124,7 @@
 				7DB8CCDA23BE83F9005400C8 /* Sources */,
 				7DB8CCDB23BE83F9005400C8 /* Frameworks */,
 				7DB8CCDC23BE83F9005400C8 /* Resources */,
+				7D14E22C23C2076B00BBE97C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -316,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;
@@ -340,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;

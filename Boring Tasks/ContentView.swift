@@ -9,10 +9,11 @@
 import SwiftUI
 import UIKit
 
-private let dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    return dateFormatter
+private let dateFormatter: RelativeDateTimeFormatter = {
+    let formatter = RelativeDateTimeFormatter()
+    formatter.dateTimeStyle = .named
+    formatter.unitsStyle = .full
+    return formatter
 }()
 
 struct ContentView: View {
@@ -26,18 +27,9 @@ struct ContentView: View {
             MasterView()
                 .navigationBarTitle(Text("Boring Tasks"))
                 .navigationBarItems(
-                    leading: EditButton(),
-                    trailing: Button(
-                        action: {
-                            self.addListModal = true
-                        }
-                    ) { 
-                        Image(systemName: "plus")
-                            .frame(width: 30, height: 44.0)
-                    }
+                    leading: EditButton()
                 )
-            Text("Detail view content goes here")
-                .navigationBarTitle(Text("Detail"))
+            Text("Please select/create a list to start")
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
 }
@@ -96,138 +88,147 @@ struct MasterView: View {
                     })
                 })
             }.padding()
-        }
+        }.listStyle(GroupedListStyle())
     }
 }
+
 
 struct DetailView: View {
     @Environment(\.managedObjectContext)
     var viewContext
 
-    @ObservedObject var taskList: TaskList
+    var fetchRequest: FetchRequest<TaskItem>
+    
+    var items: FetchedResults<TaskItem>{
+        fetchRequest.wrappedValue
+    }
+    
     @State private var showPopover: Bool = false
 
     @State var isModal: Bool = false
     
+    var taskList: TaskList
+
+    init(taskList: TaskList) {
+        self.taskList = taskList
+        
+        fetchRequest = FetchRequest<TaskItem>(
+            entity: TaskItem.entity(),
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "list == %@", taskList)
+        )
+    }
+    
     var body: some View {
-        List {
-            ForEach(taskList.itemsArray, id: \.self) { item in
-                VStack {
-                    HStack {
-                        Text(item.title!)
-                        Spacer()
-                        Text("\(item.due!, formatter: dateFormatter)")
-                            .font(.caption)
-                            .foregroundColor(Color.red)
-                    }
-                    HStack {
-                        ForEach(item.history, id: \.self) { activity in
-                            RoundedRectangle(cornerRadius: 10).frame(width: 10, height: 10, alignment: .leading).foregroundColor(activity.type == "done" ? .blue : .gray)
+        VStack {
+            List {
+                ForEach(items, id: \.self) { item in
+                    VStack {
+                        HStack {
+                            Text(item.title!)
+                            Text("\(item.due!, formatter: dateFormatter)")
+                                .foregroundColor(item.due! < Date() ? .red : .blue)
+                            Spacer()
                         }
-                        Spacer()
+                        HStack {
+                            ForEach(item.history, id: \.self) { activity in
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 10, height: 10, alignment: .leading)
+                                    .foregroundColor(activity.type == "done" ? .blue : .gray)
+                            }
+                            Spacer()
+                        }
+                    }.contextMenu {
+                        Button(action: {
+                            let newActivity = TaskActivity(context: self.viewContext)
+                            newActivity.date = Date()
+                            newActivity.item = item
+                            newActivity.type = "done"
+                            newActivity.score = item.score
+                            
+                            let periodStr = item.period!
+                            let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
+                            
+                            item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                            
+                            do {
+                                try self.viewContext.save()
+                            } catch {
+                                print("error when set done")
+                            }
+                        }) {
+                            HStack {
+                                Text("Done")
+                                Image(systemName: "checkmark.circle")
+                            }
+                        }
+                        Button(action: {
+                            let newActivity = TaskActivity(context: self.viewContext)
+                            newActivity.date = Date()
+                            newActivity.item = item
+                            newActivity.type = "skip"
+                            newActivity.score = 0
+                            
+                            let periodStr = item.period!
+                            let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
+                            
+                            item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                            
+                            do {
+                                try self.viewContext.save()
+                            } catch {
+                                print("error when set done")
+                            }
+                        }) {
+                            HStack {
+                                Text("Skip")
+                                Image(systemName: "chevron.right.2")
+                            }
+                        }
                     }
-                }.contextMenu {
-                    Button(action: {
-                        let newActivity = TaskActivity(context: self.viewContext)
-                        newActivity.date = Date()
-                        newActivity.item = item
-                        newActivity.type = "done"
-                        newActivity.score = item.score
-                        
-                        let periodStr = item.period!
-                        let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
-                        
-                        item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                }.onDelete(perform: { indices in
+                    indices.forEach { self.viewContext.delete(self.items[$0]) }
+                    
+                    do {
+                       try self.viewContext.save()
+                    } catch {
+                        print("error")
+                    }
+                })
+            }
+            HStack {
+                Spacer()
+                Button(
+                    action: {
+                        self.isModal = true
+                    }
+                ) {
+                    Text("Add Task")
+                }.sheet(isPresented: $isModal, content: {
+                    ItemEditView(closeAction: {
+                        self.isModal = false
+                    }, doneAction: { title, period in
+                        let newList = TaskItem(context: self.viewContext)
+                        newList.title = title
+                        newList.list = self.taskList
+                        newList.period = "\(period)D"
+                        newList.due = Calendar.current.date(byAdding: .day, value: period, to: Date())!
                         
                         do {
                             try self.viewContext.save()
                         } catch {
-                            print("error when set done")
+                            print("errorrrrrrrr")
                         }
-                    }) {
-                        HStack {
-                            Text("Done")
-                            Image(systemName: "checkmark.circle")
-                        }
-                    }
-                    Button(action: {
-                        let newActivity = TaskActivity(context: self.viewContext)
-                        newActivity.date = Date()
-                        newActivity.item = item
-                        newActivity.type = "skip"
-                        newActivity.score = 0
                         
-                        let periodStr = item.period!
-                        let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
-                        
-                        item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
-                        
-                        do {
-                            try self.viewContext.save()
-                        } catch {
-                            print("error when set done")
-                        }
-                    }) {
-                        HStack {
-                            Text("Skip")
-                            Image(systemName: "chevron.right.2")
-                        }
-                    }
-                }
-            }.onDelete(perform: { indices in
-                indices.forEach { self.viewContext.delete(self.taskList.itemsArray[$0]) }
-                
-                do {
-                   try self.viewContext.save()
-                } catch {
-                    print("error")
-                }
-            })
-            
-            Section {
-                HStack {
-                    RoundedRectangle(cornerRadius: 10).frame(width: 10, height: 10, alignment: .leading).foregroundColor(.blue)
-                    Text("Murat").foregroundColor(.blue)
-                }
-            }
-            Section {
-                Button(action: { print("removed") } ) {
-                    Text("Show Done Items")
-                }
-            }
+                        self.isModal = false
+                    })
+                })
+            }.padding()
         }
 
         .listStyle(GroupedListStyle())
 
         .navigationBarTitle(Text(taskList.title!))
-        .navigationBarItems(
-            trailing: Button(
-                action: {
-                    self.isModal = true
-                }
-            ) {
-                Image(systemName: "plus")
-                    .frame(width: 30, height: 44.0)
-            }.sheet(isPresented: $isModal, content: {
-                ItemEditView(closeAction: {
-                    self.isModal = false
-                }, doneAction: { title, period in
-                    let newList = TaskItem(context: self.viewContext)
-                    newList.title = title
-                    newList.list = self.taskList
-                    newList.period = "\(period)D"
-                    newList.due = Calendar.current.date(byAdding: .day, value: period, to: Date())!
-                    
-                    do {
-                        try self.viewContext.save()
-                    } catch {
-                        print("errorrrrrrrr")
-                    }
-                    
-                    self.isModal = false
-                })
-            })
-        )
     }
 }
 
