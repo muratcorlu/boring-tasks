@@ -14,28 +14,26 @@ struct ListEditView: View {
     var doneAction: ((String) -> Void) = { a in }
     
     var body: some View {
-        Form {
-            Text("Add List")
-            
-            Section {
-                TextField("List Title",
-                          text: $title)
+        NavigationView {
+            Form {
+                Section {
+                    TextField("List Title",
+                              text: $title)
+                }
             }
-            
-            Section {
-                Button(action: {
-                    self.doneAction(self.title)
-                }, label: {
-                    Text("Done")
-                })
-                Button(action: {
-                    print("Updated profile")
-                    self.closeAction()
-                }, label: {
-                    Text("Cancel")
-                })
-            }
-        }
+            .navigationBarTitle("Add List", displayMode: .inline)
+            .navigationBarItems(leading: Button(action: {
+                print("Updated profile")
+                self.closeAction()
+            }, label: {
+                Text("Cancel")
+            }), trailing: Button(action: {
+                self.doneAction(self.title)
+            }, label: {
+                Text("Done")
+            }))
+        }.navigationViewStyle(StackNavigationViewStyle())
+
     }
     
 }

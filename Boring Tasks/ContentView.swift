@@ -72,20 +72,20 @@ struct MasterView: View {
                 }) {
                     Text("Add List")
                 }.sheet(isPresented: $addListModal, content: {
-                    ListEditView(closeAction: {
-                        self.addListModal = false
-                    }, doneAction: { title in
-                        let newList = TaskList(context: self.viewContext)
-                        newList.title = title
-                        
-                        do {
-                            try self.viewContext.save()
-                        } catch {
-                            print("errorrrrrrrr")
-                        }
-                        
-                        self.addListModal = false
-                    })
+                        ListEditView(closeAction: {
+                            self.addListModal = false
+                        }, doneAction: { title in
+                            let newList = TaskList(context: self.viewContext)
+                            newList.title = title
+                            
+                            do {
+                                try self.viewContext.save()
+                            } catch {
+                                print("errorrrrrrrr")
+                            }
+                            
+                            self.addListModal = false
+                        })
                 })
             }.padding()
         }.listStyle(GroupedListStyle())
@@ -146,10 +146,27 @@ struct DetailView: View {
                             newActivity.type = "done"
                             newActivity.score = item.score
                             
-                            let periodStr = item.period!
-                            let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
+                            var periodStr = item.period!
+                            let periodType = periodStr.remove(at: periodStr.index(before: periodStr.endIndex))
+                            var periodValue = Int(periodStr) ?? 1
                             
-                            item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                            var periodTypeObject: Calendar.Component
+
+                            switch periodType {
+                                case "D":
+                                    periodTypeObject = .day
+                                case "W":
+                                    periodTypeObject = .day
+                                    periodValue = periodValue * 7
+                                case "M":
+                                    periodTypeObject = .month
+                                case "Y":
+                                    periodTypeObject = .year
+                                default:
+                                    periodTypeObject = .day
+                            }
+                            
+                            item.due = Calendar.current.date(byAdding: periodTypeObject, value: periodValue, to: Date())!
                             
                             do {
                                 try self.viewContext.save()
@@ -169,10 +186,27 @@ struct DetailView: View {
                             newActivity.type = "skip"
                             newActivity.score = 0
                             
-                            let periodStr = item.period!
-                            let period = Int(periodStr.replacingOccurrences(of: "D", with: ""))
+                            var periodStr = item.period!
+                            let periodType = periodStr.remove(at: periodStr.index(before: periodStr.endIndex))
+                            var periodValue = Int(periodStr) ?? 1
                             
-                            item.due = Calendar.current.date(byAdding: .day, value: period ?? 1, to: item.due!)!
+                            var periodTypeObject: Calendar.Component
+
+                            switch periodType {
+                                case "D":
+                                    periodTypeObject = .day
+                                case "W":
+                                    periodTypeObject = .day
+                                    periodValue = periodValue * 7
+                                case "M":
+                                    periodTypeObject = .month
+                                case "Y":
+                                    periodTypeObject = .year
+                                default:
+                                    periodTypeObject = .day
+                            }
+                            
+                            item.due = Calendar.current.date(byAdding: periodTypeObject, value: periodValue, to: Date())!
                             
                             do {
                                 try self.viewContext.save()
@@ -207,12 +241,30 @@ struct DetailView: View {
                 }.sheet(isPresented: $isModal, content: {
                     ItemEditView(closeAction: {
                         self.isModal = false
-                    }, doneAction: { title, period in
+                    }, doneAction: { title, period, periodType in
                         let newList = TaskItem(context: self.viewContext)
                         newList.title = title
                         newList.list = self.taskList
-                        newList.period = "\(period)D"
-                        newList.due = Calendar.current.date(byAdding: .day, value: period, to: Date())!
+                        newList.period = "\(period)\(periodType)"
+                        
+                        var periodTypeObject: Calendar.Component
+                        
+                        var periodValue = Int(period) ?? 1
+                        
+                        switch periodType {
+                        case "D":
+                            periodTypeObject = .day
+                        case "W":
+                            periodTypeObject = .day
+                            periodValue = periodValue * 7
+                        case "M":
+                            periodTypeObject = .month
+                        case "Y":
+                            periodTypeObject = .year
+                        default:
+                            periodTypeObject = .day
+                        }
+                        newList.due = Calendar.current.date(byAdding: periodTypeObject, value: periodValue, to: Date())!
                         
                         do {
                             try self.viewContext.save()
