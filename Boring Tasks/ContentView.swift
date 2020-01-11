@@ -21,11 +21,12 @@ struct ContentView: View {
     var viewContext
  
     @State var addListModal:Bool = false
-
+    
+    let appName: LocalizedStringKey = "APP_NAME"
     var body: some View {
         NavigationView {
             MasterView()
-                .navigationBarTitle(Text("Boring Tasks"))
+                .navigationBarTitle(Text(appName))
                 .navigationBarItems(
                     leading: EditButton()
                 )
@@ -46,6 +47,8 @@ struct MasterView: View {
 
     @State var addListModal:Bool = false
 
+    let strAddList: LocalizedStringKey = "ADD_LIST"
+    
     var body: some View {
         VStack {
             List {
@@ -70,7 +73,7 @@ struct MasterView: View {
                 Button(action: {
                     self.addListModal = true
                 }) {
-                    Text("Add List")
+                    Text(strAddList)
                 }.sheet(isPresented: $addListModal, content: {
                         ListEditView(closeAction: {
                             self.addListModal = false
@@ -106,7 +109,9 @@ struct DetailView: View {
     @State private var showPopover: Bool = false
 
     @State var isModal: Bool = false
-    
+    let strAddTask: LocalizedStringKey = "ADD_TASK"
+    let strTaskDone: LocalizedStringKey = "ACTION_DONE"
+    let strTaskSkip: LocalizedStringKey = "ACTION_SKIP"
     var taskList: TaskList
 
     init(taskList: TaskList) {
@@ -131,7 +136,7 @@ struct DetailView: View {
                             Spacer()
                         }
                         HStack {
-                            ForEach(item.history, id: \.self) { activity in
+                            ForEach(item.history.reversed(), id: \.self) { activity in
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(width: 10, height: 10, alignment: .leading)
                                     .foregroundColor(activity.type == "done" ? .blue : .gray)
@@ -175,7 +180,7 @@ struct DetailView: View {
                             }
                         }) {
                             HStack {
-                                Text("Done")
+                                Text(self.strTaskDone)
                                 Image(systemName: "checkmark.circle")
                             }
                         }
@@ -215,7 +220,7 @@ struct DetailView: View {
                             }
                         }) {
                             HStack {
-                                Text("Skip")
+                                Text(self.strTaskSkip)
                                 Image(systemName: "chevron.right.2")
                             }
                         }
@@ -237,7 +242,7 @@ struct DetailView: View {
                         self.isModal = true
                     }
                 ) {
-                    Text("Add Task")
+                    Text(strAddTask)
                 }.sheet(isPresented: $isModal, content: {
                     ItemEditView(closeAction: {
                         self.isModal = false

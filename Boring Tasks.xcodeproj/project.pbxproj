@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D03672923C8BBC0001FA622 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D03672B23C8BBC0001FA622 /* Localizable.strings */; };
+		7D03673723C8C0E8001FA622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D03673923C8C0E8001FA622 /* InfoPlist.strings */; };
+		7D03673E23C8CD18001FA622 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 7D03673D23C8CD18001FA622 /* Localizable.stringsdict */; };
 		7D31990B23BF8BF700D03649 /* ItemEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31990A23BF8BF700D03649 /* ItemEditView.swift */; };
 		7D31993D23C0070A00D03649 /* ListEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31993C23C0070A00D03649 /* ListEditView.swift */; };
 		7DB8CCE223BE83F9005400C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */; };
@@ -18,6 +21,7 @@
 		7DB8CCF023BE83FC005400C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEF23BE83FC005400C8 /* Preview Assets.xcassets */; };
 		7DB8CCF323BE83FC005400C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */; };
 		7DB8CCFD23BF4ADC005400C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */; };
+		7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +38,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7D03672A23C8BBC0001FA622 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7D03672C23C8BBDD001FA622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7D03673823C8C0E8001FA622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7D03673A23C8C0EA001FA622 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7D03673B23C8C14A001FA622 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7D03673C23C8C14A001FA622 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7D03673D23C8CD18001FA622 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		7D31990A23BF8BF700D03649 /* ItemEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditView.swift; sourceTree = "<group>"; };
 		7D31993C23C0070A00D03649 /* ListEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditView.swift; sourceTree = "<group>"; };
 		7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boring Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,9 +56,9 @@
 		7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DB8CCEF23BE83FC005400C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7DB8CCF223BE83FC005400C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7DB8CCF423BE83FC005400C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Boring Tasks.entitlements"; sourceTree = "<group>"; };
 		7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSwipeActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +102,12 @@
 				7D31993C23C0070A00D03649 /* ListEditView.swift */,
 				7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */,
 				7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */,
-				7DB8CCF423BE83FC005400C8 /* Info.plist */,
 				7DB8CCE323BE83F9005400C8 /* Boring_Tasks.xcdatamodeld */,
 				7DB8CCEE23BE83FC005400C8 /* Preview Content */,
+				7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */,
+				7D03673923C8C0E8001FA622 /* InfoPlist.strings */,
+				7D03672B23C8BBC0001FA622 /* Localizable.strings */,
+				7D03673D23C8CD18001FA622 /* Localizable.stringsdict */,
 			);
 			path = "Boring Tasks";
 			sourceTree = "<group>";
@@ -157,6 +171,8 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				nl,
 			);
 			mainGroup = 7DB8CCD523BE83F9005400C8;
 			productRefGroup = 7DB8CCDF23BE83F9005400C8 /* Products */;
@@ -174,8 +190,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB8CCF323BE83FC005400C8 /* LaunchScreen.storyboard in Resources */,
+				7D03672923C8BBC0001FA622 /* Localizable.strings in Resources */,
 				7DB8CCF023BE83FC005400C8 /* Preview Assets.xcassets in Resources */,
 				7DB8CCED23BE83FC005400C8 /* Assets.xcassets in Resources */,
+				7D03673723C8C0E8001FA622 /* InfoPlist.strings in Resources */,
+				7D03673E23C8CD18001FA622 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +211,7 @@
 				7DB8CCEB23BE83F9005400C8 /* ContentView.swift in Sources */,
 				7DB8CCE223BE83F9005400C8 /* AppDelegate.swift in Sources */,
 				7DB8CCE523BE83F9005400C8 /* Boring_Tasks.xcdatamodeld in Sources */,
+				7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */,
 				7DB8CCE723BE83F9005400C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +219,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7D03672B23C8BBC0001FA622 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D03672A23C8BBC0001FA622 /* tr */,
+				7D03672C23C8BBDD001FA622 /* en */,
+				7D03673C23C8C14A001FA622 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7D03673923C8C0E8001FA622 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D03673823C8C0E8001FA622 /* en */,
+				7D03673A23C8C0EA001FA622 /* tr */,
+				7D03673B23C8C14A001FA622 /* nl */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -214,6 +254,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -274,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -330,7 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;
@@ -354,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;

@@ -17,14 +17,27 @@ struct ItemEditView: View {
     var closeAction: (() -> Void) = {}
     var doneAction: ((String, String, String) -> Void) = { a, b, c in }
 
+    let strDone: LocalizedStringKey = "DONE"
+    let strCancel: LocalizedStringKey = "CANCEL"
+    
+    let strAddTask: LocalizedStringKey = "ADD_TASK"
+    let strTaskTitle: LocalizedStringKey = "TASK_TITLE"
+    let strTaskPeriodPrefix: LocalizedStringKey = "ADD_TASK_PERIOD_PREFIX"
+    let strTaskPeriodSuffix: LocalizedStringKey = "ADD_TASK_PERIOD_SUFFIX"
+    
+    let strAddTaskPeriodDays: LocalizedStringKey = "ADD_TASK_PERIOD_DAYS"
+    let strAddTaskPeriodWeeks: LocalizedStringKey = "ADD_TASK_PERIOD_WEEKS"
+    let strAddTaskPeriodMonths: LocalizedStringKey = "ADD_TASK_PERIOD_MONTHS"
+    let strAddTaskPeriodYears: LocalizedStringKey = "ADD_TASK_PERIOD_YEARS"
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Title",
+                    TextField(strTaskTitle,
                         text: $title)
                     HStack {
-                        Text("Will do it once per")
+                        Text(strTaskPeriodPrefix)
                         TextField("Count", text: $period)
                             .frame(width: 40)
                             .keyboardType(.numberPad)
@@ -35,26 +48,27 @@ struct ItemEditView: View {
                                 }
                             }
                         Picker(selection: $periodType, label: Text("Period")) {
-                            Text("days").tag("D")
-                            Text("weeks").tag("W")
-                            Text("months").tag("M")
-                            Text("years").tag("Y")
+                            Text(strAddTaskPeriodDays).tag("D")
+                            Text(strAddTaskPeriodWeeks).tag("W")
+                            Text(strAddTaskPeriodMonths).tag("M")
+                            Text(strAddTaskPeriodYears).tag("Y")
                         }
+                        Text(strTaskPeriodSuffix)
                         Spacer()
                     }.labelsHidden()
                 }
             }
-            .navigationBarTitle("Add Task", displayMode: .inline)
+            .navigationBarTitle(strAddTask, displayMode: .inline)
             .navigationBarItems(leading: Button(action: {
                 self.closeAction()
             }, label: {
-                Text("Cancel")
+                Text(strCancel)
             }), trailing: Button(action: {
                 if !self.title.isEmpty {
                     self.doneAction(self.title, self.period, self.periodType)
                 }
             }, label: {
-                Text("Done")
+                Text(strDone)
             }))
         }.navigationViewStyle(StackNavigationViewStyle())
     }

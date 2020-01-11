@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Boring Tasks
+
+  Created by Murat Corlu on 10/01/2020.
+  Copyright © 2020 Murat Corlu. All rights reserved.
+*/
+ADD_LIST = "Add List";
+APP_NAME = "Boring Tasks";
+ADD_TASK = "Add Task";
+ACTION_DONE = "Done";
+ACTION_SKIP = "Skip";
