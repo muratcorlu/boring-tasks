@@ -10,8 +10,12 @@
 		7D03672923C8BBC0001FA622 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D03672B23C8BBC0001FA622 /* Localizable.strings */; };
 		7D03673723C8C0E8001FA622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D03673923C8C0E8001FA622 /* InfoPlist.strings */; };
 		7D03673E23C8CD18001FA622 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 7D03673D23C8CD18001FA622 /* Localizable.stringsdict */; };
+		7D03674623CA7696001FA622 /* BoringTasksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03674523CA7696001FA622 /* BoringTasksUITests.swift */; };
+		7D03674E23CA774A001FA622 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03674D23CA774A001FA622 /* SnapshotHelper.swift */; };
 		7D31990B23BF8BF700D03649 /* ItemEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31990A23BF8BF700D03649 /* ItemEditView.swift */; };
 		7D31993D23C0070A00D03649 /* ListEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31993C23C0070A00D03649 /* ListEditView.swift */; };
+		7D719AB723CD19EC002BEBE1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D719AB623CD19EC002BEBE1 /* DetailView.swift */; };
+		7D719AB923CD1A1E002BEBE1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D719AB823CD1A1E002BEBE1 /* MasterView.swift */; };
 		7DB8CCE223BE83F9005400C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */; };
 		7DB8CCE523BE83F9005400C8 /* Boring_Tasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE323BE83F9005400C8 /* Boring_Tasks.xcdatamodeld */; };
 		7DB8CCE723BE83F9005400C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE623BE83F9005400C8 /* SceneDelegate.swift */; };
@@ -21,8 +25,19 @@
 		7DB8CCF023BE83FC005400C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEF23BE83FC005400C8 /* Preview Assets.xcassets */; };
 		7DB8CCF323BE83FC005400C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */; };
 		7DB8CCFD23BF4ADC005400C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */; };
+		7DBA8BF823CA90EA0050C559 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DBA8BFA23CA90EA0050C559 /* Localizable.strings */; };
 		7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7D03674823CA7696001FA622 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DB8CCD623BE83F9005400C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DB8CCDD23BE83F9005400C8;
+			remoteInfo = "Boring Tasks";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7D14E22C23C2076B00BBE97C /* Embed Watch Content */ = {
@@ -42,11 +57,15 @@
 		7D03672C23C8BBDD001FA622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7D03673823C8C0E8001FA622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D03673A23C8C0EA001FA622 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7D03673B23C8C14A001FA622 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7D03673C23C8C14A001FA622 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7D03673D23C8CD18001FA622 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		7D03674323CA7696001FA622 /* BoringTasksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoringTasksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D03674523CA7696001FA622 /* BoringTasksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringTasksUITests.swift; sourceTree = "<group>"; };
+		7D03674723CA7696001FA622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D03674D23CA774A001FA622 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		7D31990A23BF8BF700D03649 /* ItemEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditView.swift; sourceTree = "<group>"; };
 		7D31993C23C0070A00D03649 /* ListEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditView.swift; sourceTree = "<group>"; };
+		7D719AB623CD19EC002BEBE1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		7D719AB823CD1A1E002BEBE1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boring Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB8CCE423BE83F9005400C8 /* Boring_Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boring_Tasks.xcdatamodel; sourceTree = "<group>"; };
@@ -58,10 +77,19 @@
 		7DB8CCF223BE83FC005400C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Boring Tasks.entitlements"; sourceTree = "<group>"; };
 		7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7DBA8BF923CA90EA0050C559 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7DBA8BFB23CA91030050C559 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSwipeActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7D03674023CA7696001FA622 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DB8CCDB23BE83F9005400C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,10 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D03674423CA7696001FA622 /* BoringTasksUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7D03674D23CA774A001FA622 /* SnapshotHelper.swift */,
+				7D03674523CA7696001FA622 /* BoringTasksUITests.swift */,
+				7D03674723CA7696001FA622 /* Info.plist */,
+				7DBA8BFA23CA90EA0050C559 /* Localizable.strings */,
+			);
+			path = BoringTasksUITests;
+			sourceTree = "<group>";
+		};
 		7DB8CCD523BE83F9005400C8 = {
 			isa = PBXGroup;
 			children = (
 				7DB8CCE023BE83F9005400C8 /* Boring Tasks */,
+				7D03674423CA7696001FA622 /* BoringTasksUITests */,
 				7DB8CCDF23BE83F9005400C8 /* Products */,
 				7DB8CCFB23BF4ADC005400C8 /* Frameworks */,
 			);
@@ -86,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */,
+				7D03674323CA7696001FA622 /* BoringTasksUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +149,8 @@
 				7D03673923C8C0E8001FA622 /* InfoPlist.strings */,
 				7D03672B23C8BBC0001FA622 /* Localizable.strings */,
 				7D03673D23C8CD18001FA622 /* Localizable.stringsdict */,
+				7D719AB623CD19EC002BEBE1 /* DetailView.swift */,
+				7D719AB823CD1A1E002BEBE1 /* MasterView.swift */,
 			);
 			path = "Boring Tasks";
 			sourceTree = "<group>";
@@ -131,6 +174,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7D03674223CA7696001FA622 /* BoringTasksUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D03674A23CA7696001FA622 /* Build configuration list for PBXNativeTarget "BoringTasksUITests" */;
+			buildPhases = (
+				7D03673F23CA7696001FA622 /* Sources */,
+				7D03674023CA7696001FA622 /* Frameworks */,
+				7D03674123CA7696001FA622 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D03674923CA7696001FA622 /* PBXTargetDependency */,
+			);
+			name = BoringTasksUITests;
+			productName = BoringTasksUITests;
+			productReference = 7D03674323CA7696001FA622 /* BoringTasksUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7DB8CCDD23BE83F9005400C8 /* Boring Tasks */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DB8CCF723BE83FC005400C8 /* Build configuration list for PBXNativeTarget "Boring Tasks" */;
@@ -159,6 +220,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Murat Corlu";
 				TargetAttributes = {
+					7D03674223CA7696001FA622 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 7DB8CCDD23BE83F9005400C8;
+					};
 					7DB8CCDD23BE83F9005400C8 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -172,7 +237,6 @@
 				en,
 				Base,
 				tr,
-				nl,
 			);
 			mainGroup = 7DB8CCD523BE83F9005400C8;
 			productRefGroup = 7DB8CCDF23BE83F9005400C8 /* Products */;
@@ -180,11 +244,20 @@
 			projectRoot = "";
 			targets = (
 				7DB8CCDD23BE83F9005400C8 /* Boring Tasks */,
+				7D03674223CA7696001FA622 /* BoringTasksUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7D03674123CA7696001FA622 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DBA8BF823CA90EA0050C559 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DB8CCDC23BE83F9005400C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,22 +274,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7D03673F23CA7696001FA622 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D03674623CA7696001FA622 /* BoringTasksUITests.swift in Sources */,
+				7D03674E23CA774A001FA622 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DB8CCDA23BE83F9005400C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7DB8CCE923BE83F9005400C8 /* TaskList.swift in Sources */,
+				7D719AB723CD19EC002BEBE1 /* DetailView.swift in Sources */,
 				7D31993D23C0070A00D03649 /* ListEditView.swift in Sources */,
 				7D31990B23BF8BF700D03649 /* ItemEditView.swift in Sources */,
 				7DB8CCEB23BE83F9005400C8 /* ContentView.swift in Sources */,
 				7DB8CCE223BE83F9005400C8 /* AppDelegate.swift in Sources */,
 				7DB8CCE523BE83F9005400C8 /* Boring_Tasks.xcdatamodeld in Sources */,
 				7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */,
+				7D719AB923CD1A1E002BEBE1 /* MasterView.swift in Sources */,
 				7DB8CCE723BE83F9005400C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D03674923CA7696001FA622 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DB8CCDD23BE83F9005400C8 /* Boring Tasks */;
+			targetProxy = 7D03674823CA7696001FA622 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7D03672B23C8BBC0001FA622 /* Localizable.strings */ = {
@@ -224,7 +316,6 @@
 			children = (
 				7D03672A23C8BBC0001FA622 /* tr */,
 				7D03672C23C8BBDD001FA622 /* en */,
-				7D03673C23C8C14A001FA622 /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -234,7 +325,6 @@
 			children = (
 				7D03673823C8C0E8001FA622 /* en */,
 				7D03673A23C8C0EA001FA622 /* tr */,
-				7D03673B23C8C14A001FA622 /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -247,9 +337,58 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		7DBA8BFA23CA90EA0050C559 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DBA8BF923CA90EA0050C559 /* en */,
+				7DBA8BFB23CA91030050C559 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7D03674B23CA7696001FA622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UDCL858977;
+				INFOPLIST_FILE = BoringTasksUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muratcorlu.BoringTasksUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Boring Tasks";
+			};
+			name = Debug;
+		};
+		7D03674C23CA7696001FA622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UDCL858977;
+				INFOPLIST_FILE = BoringTasksUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muratcorlu.BoringTasksUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Boring Tasks";
+			};
+			name = Release;
+		};
 		7DB8CCF523BE83FC005400C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -372,7 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;
@@ -396,7 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;
@@ -417,6 +556,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7D03674A23CA7696001FA622 /* Build configuration list for PBXNativeTarget "BoringTasksUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D03674B23CA7696001FA622 /* Debug */,
+				7D03674C23CA7696001FA622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7DB8CCD923BE83F9005400C8 /* Build configuration list for PBXProject "Boring Tasks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
