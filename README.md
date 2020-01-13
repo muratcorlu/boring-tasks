@@ -13,3 +13,4 @@ An iOS app to manage your daily routines
 * [ ] Apple TV App
 * [ ] iMessage App
 * [ ] Siri Shortcuts
+* [ ] Web Client
