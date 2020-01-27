@@ -13,6 +13,7 @@ APP_NAME = "Boring Tasks";
 ADD_TASK = "Add Task";
 ACTION_DONE = "Done";
 ACTION_SKIP = "Skip";
+ACTION_DELETE = "Delete";
 TASK_TITLE = "Title";
 ADD_TASK_PERIOD_PREFIX = "Will do it once per";
 ADD_TASK_PERIOD_SUFFIX = "";

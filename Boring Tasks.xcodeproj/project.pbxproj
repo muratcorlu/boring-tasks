@@ -59,7 +59,7 @@
 		7D03673823C8C0E8001FA622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D03673A23C8C0EA001FA622 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D03673D23C8CD18001FA622 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
-		7D03674323CA7696001FA622 /* BoringTasksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoringTasksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D03674323CA7696001FA622 /* Boring TasksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Boring TasksUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D03674523CA7696001FA622 /* BoringTasksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringTasksUITests.swift; sourceTree = "<group>"; };
 		7D03674723CA7696001FA622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D03674D23CA774A001FA622 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DB8CCEF23BE83FC005400C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7DB8CCF223BE83FC005400C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7DB8CCFA23BF4AD9005400C8 /* BoringTasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoringTasks.entitlements; sourceTree = "<group>"; };
+		7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Boring Tasks.entitlements"; sourceTree = "<group>"; };
 		7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7DBA8BF923CA90EA0050C559 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7DBA8BFB23CA91030050C559 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		7DB8CCD523BE83F9005400C8 = {
 			isa = PBXGroup;
 			children = (
-				7DB8CCE023BE83F9005400C8 /* BoringTasks */,
+				7DB8CCE023BE83F9005400C8 /* Boring Tasks */,
 				7D03674423CA7696001FA622 /* BoringTasksUITests */,
 				7DB8CCDF23BE83F9005400C8 /* Products */,
 				7DB8CCFB23BF4ADC005400C8 /* Frameworks */,
@@ -128,16 +128,16 @@
 			isa = PBXGroup;
 			children = (
 				7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */,
-				7D03674323CA7696001FA622 /* BoringTasksUITests.xctest */,
+				7D03674323CA7696001FA622 /* Boring TasksUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7DB8CCE023BE83F9005400C8 /* BoringTasks */ = {
+		7DB8CCE023BE83F9005400C8 /* Boring Tasks */ = {
 			isa = PBXGroup;
 			children = (
 				7D0F996123D493900003D5F7 /* Boring Tasks.help */,
-				7DB8CCFA23BF4AD9005400C8 /* BoringTasks.entitlements */,
+				7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */,
 				7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */,
 				7DB8CCE623BE83F9005400C8 /* SceneDelegate.swift */,
 				7DB8CCE823BE83F9005400C8 /* TaskList.swift */,
@@ -155,7 +155,7 @@
 				7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */,
 				7DB8CCEE23BE83FC005400C8 /* Preview Content */,
 			);
-			path = BoringTasks;
+			path = "Boring Tasks";
 			sourceTree = "<group>";
 		};
 		7DB8CCEE23BE83FC005400C8 /* Preview Content */ = {
@@ -177,9 +177,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7D03674223CA7696001FA622 /* BoringTasksUITests */ = {
+		7D03674223CA7696001FA622 /* Boring TasksUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D03674A23CA7696001FA622 /* Build configuration list for PBXNativeTarget "BoringTasksUITests" */;
+			buildConfigurationList = 7D03674A23CA7696001FA622 /* Build configuration list for PBXNativeTarget "Boring TasksUITests" */;
 			buildPhases = (
 				7D03673F23CA7696001FA622 /* Sources */,
 				7D03674023CA7696001FA622 /* Frameworks */,
@@ -190,14 +190,14 @@
 			dependencies = (
 				7D03674923CA7696001FA622 /* PBXTargetDependency */,
 			);
-			name = BoringTasksUITests;
+			name = "Boring TasksUITests";
 			productName = BoringTasksUITests;
-			productReference = 7D03674323CA7696001FA622 /* BoringTasksUITests.xctest */;
+			productReference = 7D03674323CA7696001FA622 /* Boring TasksUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		7DB8CCDD23BE83F9005400C8 /* BoringTasks */ = {
+		7DB8CCDD23BE83F9005400C8 /* Boring Tasks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7DB8CCF723BE83FC005400C8 /* Build configuration list for PBXNativeTarget "BoringTasks" */;
+			buildConfigurationList = 7DB8CCF723BE83FC005400C8 /* Build configuration list for PBXNativeTarget "Boring Tasks" */;
 			buildPhases = (
 				7DB8CCDA23BE83F9005400C8 /* Sources */,
 				7DB8CCDB23BE83F9005400C8 /* Frameworks */,
@@ -208,7 +208,7 @@
 			);
 			dependencies = (
 			);
-			name = BoringTasks;
+			name = "Boring Tasks";
 			productName = "Boring Tasks";
 			productReference = 7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */;
 			productType = "com.apple.product-type.application";
@@ -232,7 +232,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7DB8CCD923BE83F9005400C8 /* Build configuration list for PBXProject "BoringTasks" */;
+			buildConfigurationList = 7DB8CCD923BE83F9005400C8 /* Build configuration list for PBXProject "Boring Tasks" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -246,8 +246,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7DB8CCDD23BE83F9005400C8 /* BoringTasks */,
-				7D03674223CA7696001FA622 /* BoringTasksUITests */,
+				7DB8CCDD23BE83F9005400C8 /* Boring Tasks */,
+				7D03674223CA7696001FA622 /* Boring TasksUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +309,7 @@
 /* Begin PBXTargetDependency section */
 		7D03674923CA7696001FA622 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7DB8CCDD23BE83F9005400C8 /* BoringTasks */;
+			target = 7DB8CCDD23BE83F9005400C8 /* Boring Tasks */;
 			targetProxy = 7D03674823CA7696001FA622 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -562,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7D03674A23CA7696001FA622 /* Build configuration list for PBXNativeTarget "BoringTasksUITests" */ = {
+		7D03674A23CA7696001FA622 /* Build configuration list for PBXNativeTarget "Boring TasksUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D03674B23CA7696001FA622 /* Debug */,
@@ -571,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7DB8CCD923BE83F9005400C8 /* Build configuration list for PBXProject "BoringTasks" */ = {
+		7DB8CCD923BE83F9005400C8 /* Build configuration list for PBXProject "Boring Tasks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7DB8CCF523BE83FC005400C8 /* Debug */,
@@ -580,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7DB8CCF723BE83FC005400C8 /* Build configuration list for PBXNativeTarget "BoringTasks" */ = {
+		7DB8CCF723BE83FC005400C8 /* Build configuration list for PBXNativeTarget "Boring Tasks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7DB8CCF823BE83FC005400C8 /* Debug */,

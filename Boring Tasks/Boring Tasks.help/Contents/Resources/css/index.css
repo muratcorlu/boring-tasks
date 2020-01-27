@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav {
+    flex: 1;
+}
+
+.content {
+    flex: 4;
+}

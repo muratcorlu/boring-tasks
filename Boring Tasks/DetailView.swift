@@ -33,6 +33,7 @@ struct DetailView: View {
     let strAddTask: LocalizedStringKey = "ADD_TASK"
     let strTaskDone: LocalizedStringKey = "ACTION_DONE"
     let strTaskSkip: LocalizedStringKey = "ACTION_SKIP"
+    let strTaskDelete: LocalizedStringKey = "ACTION_DELETE"
     var taskList: TaskList
 
     init(taskList: TaskList) {
@@ -49,20 +50,22 @@ struct DetailView: View {
         VStack {
             List {
                 ForEach(items, id: \.self) { item in
-                    VStack {
-                        HStack {
-                            Text(item.title!)
-                            Text("\(item.due!, formatter: dateFormatter)")
-                                .foregroundColor(item.due! < Date() ? .red : .blue)
-                            Spacer()
-                        }
-                        HStack {
-                            ForEach(item.history.reversed(), id: \.self) { activity in
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 10, height: 10, alignment: .leading)
-                                    .foregroundColor(activity.type == "done" ? .blue : .gray)
+                    NavigationLink(destination: ItemEditView()) {
+                        VStack {
+                            HStack {
+                                Text(item.title!)
+                                Text("\(item.due!, formatter: dateFormatter)")
+                                    .foregroundColor(item.due! < Date() ? .red : .blue)
+                                Spacer()
                             }
-                            Spacer()
+                            HStack {
+                                ForEach(item.history.reversed(), id: \.self) { activity in
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 10, height: 10, alignment: .leading)
+                                        .foregroundColor(activity.type == "done" ? .blue : .gray)
+                                }
+                                Spacer()
+                            }
                         }
                     }.contextMenu {
                         Button(action: { self.doAction(type: "done", item: item) }) {
@@ -77,6 +80,14 @@ struct DetailView: View {
                                 Image(systemName: "chevron.right.2")
                             }
                         }
+                        Divider()
+                        Button(action:  { print("delete") }) {
+                            HStack {
+                                Text(self.strTaskDelete)
+                                Image(systemName: "minus.circle")
+                            }.foregroundColor(.red)
+                        }
+                        
                     }
                 }.onDelete(perform: { indices in
                     indices.forEach { self.viewContext.delete(self.items[$0]) }
