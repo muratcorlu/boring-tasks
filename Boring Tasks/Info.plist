@@ -8,6 +8,10 @@
 	<string>Boring Tasks</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Boring Tasks.help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>maccatalyst.com.muratcorlu.BoringTasks.help</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -29,7 +33,7 @@
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
+		<true/>
 		<key>UISceneConfigurations</key>
 		<dict>
 			<key>UIWindowSceneSessionRoleApplication</key>

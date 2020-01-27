@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Boring Tasks.xcodeproj">
+      location = "self:/Users/muratcorlu/works/Boring Tasks/BoringTasks.xcodeproj">
    </FileRef>
 </Workspace>

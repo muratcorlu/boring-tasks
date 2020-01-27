@@ -169,21 +169,21 @@
     {
       "size" : "29x29",
       "idiom" : "watch",
-      "filename" : "58.png",
+      "filename" : "58-1.png",
       "role" : "companionSettings",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "watch",
-      "filename" : "87.png",
+      "filename" : "87-1.png",
       "role" : "companionSettings",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "watch",
-      "filename" : "80.png",
+      "filename" : "80-1.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "38mm"
@@ -199,7 +199,7 @@
     {
       "size" : "50x50",
       "idiom" : "watch",
-      "filename" : "100.png",
+      "filename" : "100-1.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "44mm"
@@ -231,7 +231,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "watch-marketing",
-      "filename" : "1024.png",
+      "filename" : "1024-2.png",
       "scale" : "1x"
     },
     {
@@ -249,7 +249,7 @@
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "32.png",
+      "filename" : "32-1.png",
       "scale" : "1x"
     },
     {
@@ -273,7 +273,7 @@
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "256.png",
+      "filename" : "256-1.png",
       "scale" : "1x"
     },
     {
@@ -285,13 +285,13 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "512.png",
+      "filename" : "512-1.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "1024.png",
+      "filename" : "1024-1.png",
       "scale" : "2x"
     }
   ],

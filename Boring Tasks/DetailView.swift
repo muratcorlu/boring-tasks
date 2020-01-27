@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 private let dateFormatter: RelativeDateTimeFormatter = {
     let formatter = RelativeDateTimeFormatter()
@@ -28,6 +29,7 @@ struct DetailView: View {
     @State private var showPopover: Bool = false
 
     @State var isModal: Bool = false
+    @State var taskListMenu: Bool = false
     let strAddTask: LocalizedStringKey = "ADD_TASK"
     let strTaskDone: LocalizedStringKey = "ACTION_DONE"
     let strTaskSkip: LocalizedStringKey = "ACTION_SKIP"
@@ -120,6 +122,23 @@ struct DetailView: View {
         .listStyle(GroupedListStyle())
 
         .navigationBarTitle(Text(taskList.title!))
+//        .navigationBarItems(trailing: Button(action: {
+//            self.taskListMenu = true
+//        }) {
+//            Image(systemName: "ellipsis")
+//                .foregroundColor(.blue)
+//                .padding()
+//                .background(Color.yellow)
+//                .mask(Circle())
+//        }.actionSheet(isPresented: self.$taskListMenu) {
+//            ActionSheet(title: Text("What do you want to do?"), message: Text("There's only one choice..."), buttons: [.default(Text("Share List")), .destructive(Text("Delete List"), action: {
+//                
+//            }), .cancel()])
+//        })
+    }
+    
+    private func shareList() {
+        
     }
     
     private func extendDue(period: String) -> Date {
@@ -161,6 +180,65 @@ struct DetailView: View {
         }
     }
 }
+
+//struct UIKitCloudKitSharingButton: UIViewRepresentable {
+//    typealias UIViewType = UIButton
+//
+//    @ObservedObject
+//    var toShare: TaskList
+//    @State
+//    var share: CKShare?
+//
+//    func makeUIView(context: UIViewRepresentableContext<UIKitCloudKitSharingButton>) -> UIButton {
+//        let button = UIButton()
+//
+//        button.setImage(UIImage(systemName: "person.crop.circle.badge.plus"), for: .normal)
+//        button.addTarget(context.coordinator, action: #selector(context.coordinator.pressed(_:)), for: .touchUpInside)
+//
+//        context.coordinator.button = button
+//        return button
+//    }
+//
+//     func updateUIView(_ uiView: UIButton, context: UIViewRepresentableContext<UIKitCloudKitSharingButton>) {
+//
+//    }
+//
+//    func makeCoordinator() -> Coordinator {
+//        Coordinator(self)
+//    }
+//
+//    class Coordinator: NSObject, UICloudSharingControllerDelegate {
+//        var button: UIButton?
+//
+//        func cloudSharingController(_ csc: UICloudSharingController, failedToSaveShareWithError error: Error) {
+//            //Handle some errors here.
+//        }
+//
+//        func itemTitle(for csc: UICloudSharingController) -> String? {
+//            return parent.toShare.title
+//        }
+//
+//        var parent: UIKitCloudKitSharingButton
+//
+//        init(_ parent: UIKitCloudKitSharingButton) {
+//            self.parent = parent
+//        }
+//
+//        @objc func pressed(_ sender: UIButton) {
+//            //Pre-Create the CKShare record here, and assign to parent.share...
+//
+//            let sharingController = UICloudSharingController(share: share, container: CloudManager.current.limitsContainer())
+//
+//            sharingController.delegate = self
+//            sharingController.availablePermissions = [.allowReadWrite]
+//            if let button = self.button {
+//                sharingController.popoverPresentationController?.sourceView = button
+//            }
+//
+//            UIApplication.shared.windows.first?.rootViewController?.present(sharingController, animated: true)
+//        }
+//    }
+//}
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {

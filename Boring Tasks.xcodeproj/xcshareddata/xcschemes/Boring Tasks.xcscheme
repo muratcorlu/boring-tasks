@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7DB8CCDD23BE83F9005400C8"
                BuildableName = "Boring Tasks.app"
-               BlueprintName = "Boring Tasks"
-               ReferencedContainer = "container:Boring Tasks.xcodeproj">
+               BlueprintName = "BoringTasks"
+               ReferencedContainer = "container:BoringTasks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "7D03674223CA7696001FA622"
                BuildableName = "BoringTasksUITests.xctest"
                BlueprintName = "BoringTasksUITests"
-               ReferencedContainer = "container:Boring Tasks.xcodeproj">
+               ReferencedContainer = "container:BoringTasks.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,8 +56,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DB8CCDD23BE83F9005400C8"
             BuildableName = "Boring Tasks.app"
-            BlueprintName = "Boring Tasks"
-            ReferencedContainer = "container:Boring Tasks.xcodeproj">
+            BlueprintName = "BoringTasks"
+            ReferencedContainer = "container:BoringTasks.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DB8CCDD23BE83F9005400C8"
             BuildableName = "Boring Tasks.app"
-            BlueprintName = "Boring Tasks"
-            ReferencedContainer = "container:Boring Tasks.xcodeproj">
+            BlueprintName = "BoringTasks"
+            ReferencedContainer = "container:BoringTasks.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

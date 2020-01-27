@@ -18,6 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        #if targetEnvironment(macCatalyst)
+        windowScene.titlebar?.titleVisibility = .hidden
+        if let titlebar = windowScene.titlebar {
+            titlebar.titleVisibility = .hidden
+//            titlebar.toolbar = makeMyFancyToolbar()
+        }
+        #endif
 
         // Get the managed object context from the shared persistent container
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -35,6 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
     }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -70,3 +79,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+#if targetEnvironment(macCatalyst)
+
+private let OurButtonToolbarIdentifier = NSToolbarItem.Identifier(rawValue: "OurButton")
+
+extension SceneDelegate: NSToolbarDelegate {
+    
+    private func makeMyFancyToolbar() -> NSToolbar {
+        let toolbar = NSToolbar(identifier: "MyToolbar")
+        toolbar.delegate = self
+        return toolbar
+    }
+
+    @objc func myFancyAction(sender: UIBarButtonItem) {
+        print("Button Pressed")
+    }
+    
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        if (itemIdentifier == OurButtonToolbarIdentifier) {
+            let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(myFancyAction(sender:)))
+            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
+            return button
+        }
+        return nil
+    }
+
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return [NSToolbarItem.Identifier.flexibleSpace, OurButtonToolbarIdentifier]
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return toolbarDefaultItemIdentifiers(toolbar)
+    }
+}
+#endif
