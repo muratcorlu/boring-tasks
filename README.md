@@ -2,7 +2,7 @@
 
 An iOS app to manage your daily routines
 
-![](https://img.synaps.pics/anon/c0016345b0715e52d829380c93591d45.png)
+[![Download on the App Store](https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg)](http://itunes.apple.com/app/id1493281581) [![Download on the App Store](https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/macappstore-lrg.svg)](http://itunes.apple.com/app/id1493658806)
 
 ## Roadmap
 
