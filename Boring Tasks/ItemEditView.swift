@@ -39,6 +39,7 @@ struct ItemEditView: View {
                     HStack {
                         Text(strTaskPeriodPrefix)
                         TextField("Count", text: $period)
+                            .multilineTextAlignment(.center)
                             .frame(width: 40)
                             .keyboardType(.numberPad)
                             .onReceive(Just(period)) { newValue in
