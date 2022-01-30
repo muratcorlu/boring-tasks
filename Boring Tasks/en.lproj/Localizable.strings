@@ -5,21 +5,25 @@
   Created by Murat Corlu on 10/01/2020.
   Copyright © 2020 Murat Corlu. All rights reserved.
 */
-DONE = "Done";
-CANCEL = "Cancel";
+"DONE" = "Done";
+"CANCEL" = "Cancel";
 
-ADD_LIST = "Add List";
-APP_NAME = "Boring Tasks";
-ADD_TASK = "Add Task";
-ACTION_DONE = "Done";
-ACTION_SKIP = "Skip";
-ACTION_DELETE = "Delete";
-TASK_TITLE = "Title";
-ADD_TASK_PERIOD_PREFIX = "Will do it once per";
-ADD_TASK_PERIOD_SUFFIX = "";
-ADD_TASK_PERIOD_DAYS = "days";
-ADD_TASK_PERIOD_WEEKS = "weeks";
-ADD_TASK_PERIOD_MONTHS = "months";
-ADD_TASK_PERIOD_YEARS = "years";
+"ADD_LIST" = "Add List";
+"APP_NAME" = "Boring Tasks";
+"ADD_TASK" = "Add Task";
+"ACTION_DONE" = "Done";
+"ACTION_SKIP" = "Skip";
+"ACTION_DELETE" = "Delete";
+"TASK_TITLE" = "Title";
+"ADD_TASK_PERIOD_PREFIX" = "Will do it once per";
+/*
+ ADD_TASK_PERIOD_SUFFIX can not be empty string. It breaks the internal Localization system.
+ We will switch these to be more meaningful Localization with variables if needed.
+*/
+"ADD_TASK_PERIOD_SUFFIX" = " ";
+"ADD_TASK_PERIOD_DAYS" = "days";
+"ADD_TASK_PERIOD_WEEKS" = "weeks";
+"ADD_TASK_PERIOD_MONTHS" = "months";
+"ADD_TASK_PERIOD_YEARS" = "years";
 
-TASK_LIST_TITLE = "List Title";
+"TASK_LIST_TITLE" = "List Title";

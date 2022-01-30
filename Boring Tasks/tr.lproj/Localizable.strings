@@ -5,21 +5,21 @@
   Created by Murat Corlu on 10/01/2020.
   Copyright © 2020 Murat Corlu. All rights reserved.
 */
-DONE = "Tamam";
-CANCEL = "Vazgeç";
+"DONE" = "Tamam";
+"CANCEL" = "Vazgeç";
 
-APP_NAME = "Angarya İşler";
-ADD_LIST = "Liste Ekle";
-ADD_TASK = "İş Ekle";
-ACTION_DONE = "Yaptım";
-ACTION_SKIP = "Ertele";
+"APP_NAME" = "Angarya İşler";
+"ADD_LIST" = "Liste Ekle";
+"ADD_TASK" = "İş Ekle";
+"ACTION_DONE" = "Yaptım";
+"ACTION_SKIP" = "Ertele";
 
-TASK_TITLE = "Başlık";
-ADD_TASK_PERIOD_PREFIX = "Bu işi";
-ADD_TASK_PERIOD_SUFFIX = "bir yapacağım";
-ADD_TASK_PERIOD_DAYS = "günde";
-ADD_TASK_PERIOD_WEEKS = "haftada";
-ADD_TASK_PERIOD_MONTHS = "ayda";
-ADD_TASK_PERIOD_YEARS = "yılda";
+"TASK_TITLE" = "Başlık";
+"ADD_TASK_PERIOD_PREFIX" = "Bu işi";
+"ADD_TASK_PERIOD_SUFFIX" = "bir yapacağım";
+"ADD_TASK_PERIOD_DAYS" = "günde";
+"ADD_TASK_PERIOD_WEEKS" = "haftada";
+"ADD_TASK_PERIOD_MONTHS" = "ayda";
+"ADD_TASK_PERIOD_YEARS" = "yılda";
 
-TASK_LIST_TITLE = "Lista Başlığı";
+"TASK_LIST_TITLE" = "Lista Başlığı";
