@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import CloudKit
+import SwiftData
 
 private let dateFormatter: RelativeDateTimeFormatter = {
     let formatter = RelativeDateTimeFormatter()
@@ -17,14 +17,8 @@ private let dateFormatter: RelativeDateTimeFormatter = {
 }()
 
 struct DetailView: View {
-    @Environment(\.managedObjectContext)
-    var viewContext
-
-    var fetchRequest: FetchRequest<TaskItem>
-    
-    var items: FetchedResults<TaskItem>{
-        fetchRequest.wrappedValue
-    }
+    @Environment(\.modelContext) private var modelContext
+    @Query private var items: [TaskItem]
     
     @State private var showPopover: Bool = false
 
@@ -39,11 +33,11 @@ struct DetailView: View {
     init(taskList: TaskList) {
         self.taskList = taskList
         
-        fetchRequest = FetchRequest<TaskItem>(
-            entity: TaskItem.entity(),
-            sortDescriptors: [NSSortDescriptor(key: "due", ascending: true)],
-            predicate: NSPredicate(format: "list == %@", taskList)
-        )
+//        let predicate = #Predicate<TaskItem> {
+//            $0.list == taskList
+//        }
+//
+//        _items = Query(filter: predicate, sort: \TaskItem.due)
     }
     
     var body: some View {
@@ -59,44 +53,37 @@ struct DetailView: View {
                                 Spacer()
                             }
                             HStack {
-                                ForEach(item.history.reversed(), id: \.self) { activity in
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 10, height: 10, alignment: .leading)
-                                        .foregroundColor(activity.type == "done" ? .blue : .gray)
+                                if let activities = item.activities, activities.count > 0 {
+                                    ForEach(activities.reversed(), id: \.self) { activity in
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(width: 10, height: 10, alignment: .leading)
+                                            .foregroundColor(activity.type == "done" ? .blue : .gray)
+                                    }
+                                    Spacer()
                                 }
-                                Spacer()
                             }
                         }
-                    }.contextMenu {
-                        Button(action: { self.doAction(type: "done", item: item) }) {
-                            HStack {
-                                Text(self.strTaskDone)
-                                Image(systemName: "checkmark.circle")
-                            }
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button { self.doAction(type: "done", item: item) } label: {
+                            Label(self.strTaskDone, systemImage: "checkmark.circle")
                         }
-                        Button(action:  { self.doAction(type: "skip", item: item) }) {
-                            HStack {
-                                Text(self.strTaskSkip)
-                                Image(systemName: "chevron.right.2")
-                            }
+                        .tint(.blue)
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) { print("delete") } label: {
+                            Label(self.strTaskDelete, systemImage: "trash")
                         }
-                        Divider()
-                        Button(action:  { print("delete") }) {
-                            HStack {
-                                Text(self.strTaskDelete)
-                                Image(systemName: "minus.circle")
-                            }.foregroundColor(.red)
+                        Button { self.doAction(type: "skip", item: item) } label: {
+                            Label(self.strTaskSkip, systemImage: "chevron.right.2")
                         }
-                        
+                        .tint(.orange)
                     }
                 }.onDelete(perform: { indices in
-                    indices.forEach { self.viewContext.delete(self.items[$0]) }
-                    
-                    do {
-                       try self.viewContext.save()
-                    } catch {
-                        print("error")
+                    indices.forEach {
+                        modelContext.delete(self.items[$0])
                     }
+
                 })
             }
             HStack {
@@ -111,18 +98,14 @@ struct DetailView: View {
                     ItemEditView(closeAction: {
                         self.isModal = false
                     }, doneAction: { title, period, periodType in
-                        let newList = TaskItem(context: self.viewContext)
+                        let newList = TaskItem()
                         newList.title = title
                         newList.list = self.taskList
                         newList.period = "\(period)\(periodType)"
 
                         newList.due = self.extendDue(period: newList.period!)
                         
-                        do {
-                            try self.viewContext.save()
-                        } catch {
-                            print("errorrrrrrrr")
-                        }
+                        modelContext.insert(newList)
                         
                         self.isModal = false
                     })
@@ -133,19 +116,19 @@ struct DetailView: View {
         .listStyle(GroupedListStyle())
 
         .navigationBarTitle(Text(taskList.title!))
-//        .navigationBarItems(trailing: Button(action: {
-//            self.taskListMenu = true
-//        }) {
-//            Image(systemName: "ellipsis")
-//                .foregroundColor(.blue)
-//                .padding()
-//                .background(Color.yellow)
-//                .mask(Circle())
-//        }.actionSheet(isPresented: self.$taskListMenu) {
-//            ActionSheet(title: Text("What do you want to do?"), message: Text("There's only one choice..."), buttons: [.default(Text("Share List")), .destructive(Text("Delete List"), action: {
-//                
-//            }), .cancel()])
-//        })
+        .navigationBarItems(trailing: Button(action: {
+            self.taskListMenu = true
+        }) {
+            Image(systemName: "ellipsis")
+                .foregroundColor(.blue)
+                .padding()
+                .background(Color.yellow)
+                .mask(Circle())
+        }.actionSheet(isPresented: self.$taskListMenu) {
+            ActionSheet(title: Text("What do you want to do?"), message: Text("There's only one choice..."), buttons: [.default(Text("Share List")), .destructive(Text("Delete List"), action: {
+                
+            }), .cancel()])
+        })
     }
     
     private func shareList() {
@@ -176,7 +159,7 @@ struct DetailView: View {
         return Calendar.current.date(byAdding: periodTypeObject, value: periodValue, to: Date())!
     }
     private func doAction(type: String, item: TaskItem) {
-        let newActivity = TaskActivity(context: self.viewContext)
+        let newActivity = TaskActivity()
         newActivity.date = Date()
         newActivity.item = item
         newActivity.type = type
@@ -184,11 +167,7 @@ struct DetailView: View {
         
         item.due = self.extendDue(period: item.period!)
         
-        do {
-            try self.viewContext.save()
-        } catch {
-            print("error when set done")
-        }
+        modelContext.insert(item)
     }
 }
 
@@ -251,8 +230,6 @@ struct DetailView: View {
 //    }
 //}
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(taskList: TaskList())
-    }
+#Preview {
+    DetailView(taskList: TaskList(title: "Some List"))
 }

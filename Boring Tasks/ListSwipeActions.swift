@@ -23,7 +23,22 @@ struct ListSwipeActions: View {
                     Text("Skip").frame(width: 100)
                         .background(Color.orange)
                         .foregroundColor(.white)
-
+                    
+                }
+                .swipeActions {
+                    Button {
+                        print("Mark as favorite")
+                    } label: {
+                        Label("Favorite", systemImage: "star")
+                    }
+                    .tint(.yellow)
+                    
+                    Button {
+                        print("Delete")
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                    .tint(.red)
                 }
             }
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="TaskActivity" representedClassName="TaskActivity" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -21,9 +21,4 @@
             <fetchRequest name="fetchedPropertyFetchRequest" entity="TaskList"/>
         </fetchedProperty>
     </entity>
-    <elements>
-        <element name="TaskActivity" positionX="540.6015625" positionY="252.0859375" width="128" height="103"/>
-        <element name="TaskItem" positionX="297" positionY="234" width="128" height="133"/>
-        <element name="TaskList" positionX="593.37109375" positionY="1.90234375" width="129.6015625" height="101"/>
-    </elements>
 </model>

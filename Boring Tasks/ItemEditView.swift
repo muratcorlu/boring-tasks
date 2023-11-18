@@ -75,8 +75,6 @@ struct ItemEditView: View {
     }
 }
 
-struct ItemEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemEditView()
-    }
+#Preview {
+    ItemEditView()
 }

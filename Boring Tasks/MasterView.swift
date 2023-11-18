@@ -7,17 +7,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MasterView: View {
-    @FetchRequest(
-        entity: TaskList.entity(),
-        sortDescriptors: [],
-        animation: .default)
-    var lists: FetchedResults<TaskList>
-
-    @Environment(\.managedObjectContext)
-    var viewContext
-
+    @Environment(\.modelContext) private var modelContext
+    @Query private var lists: [TaskList]
+    
     @State var addListModal:Bool = false
 
     let strAddList: LocalizedStringKey = "ADD_LIST"
@@ -32,12 +27,8 @@ struct MasterView: View {
                         Text(list.title ?? "Unknown")
                     }
                 }.onDelete(perform: { indices in
-                    indices.forEach { self.viewContext.delete(self.lists[$0]) }
-                    
-                    do {
-                       try self.viewContext.save()
-                    } catch {
-                        print("error")
+                    indices.forEach {
+                        modelContext.delete(self.lists[$0])
                     }
                 })
             }
@@ -51,14 +42,9 @@ struct MasterView: View {
                     ListEditView(closeAction: {
                         self.addListModal = false
                     }, doneAction: { title in
-                        let newList = TaskList(context: self.viewContext)
-                        newList.title = title
+                        let newList = TaskList(title: title)
                         
-                        do {
-                            try self.viewContext.save()
-                        } catch {
-                            print("errorrrrrrrr")
-                        }
+                        modelContext.insert(newList)
                         
                         self.addListModal = false
                     })

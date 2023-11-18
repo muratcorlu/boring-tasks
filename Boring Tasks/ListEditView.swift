@@ -42,8 +42,6 @@ struct ListEditView: View {
     
 }
 
-struct ListEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListEditView()
-    }
+#Preview {
+    ListEditView()
 }

@@ -10,9 +10,8 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext)
-    var viewContext
- 
+    @Environment(\.modelContext) private var modelContext
+
     @State var addListModal:Bool = false
     
     let appName: LocalizedStringKey = "APP_NAME"
@@ -28,9 +27,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return ContentView().environment(\.managedObjectContext, context)
-    }
+#Preview {
+   ContentView()
 }

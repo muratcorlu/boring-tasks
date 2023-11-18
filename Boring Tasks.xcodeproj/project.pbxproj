@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,18 +13,17 @@
 		7D03674623CA7696001FA622 /* BoringTasksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03674523CA7696001FA622 /* BoringTasksUITests.swift */; };
 		7D03674E23CA774A001FA622 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03674D23CA774A001FA622 /* SnapshotHelper.swift */; };
 		7D0F996223D493900003D5F7 /* Boring Tasks.help in Resources */ = {isa = PBXBuildFile; fileRef = 7D0F996123D493900003D5F7 /* Boring Tasks.help */; };
+		7D1732C82B06260400729B36 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1732C62B06260300729B36 /* TaskItem.swift */; };
+		7D1732C92B06260400729B36 /* TaskActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1732C72B06260300729B36 /* TaskActivity.swift */; };
 		7D31990B23BF8BF700D03649 /* ItemEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31990A23BF8BF700D03649 /* ItemEditView.swift */; };
 		7D31993D23C0070A00D03649 /* ListEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31993C23C0070A00D03649 /* ListEditView.swift */; };
 		7D719AB723CD19EC002BEBE1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D719AB623CD19EC002BEBE1 /* DetailView.swift */; };
 		7D719AB923CD1A1E002BEBE1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D719AB823CD1A1E002BEBE1 /* MasterView.swift */; };
-		7DB8CCE223BE83F9005400C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */; };
-		7DB8CCE523BE83F9005400C8 /* Boring_Tasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE323BE83F9005400C8 /* Boring_Tasks.xcdatamodeld */; };
-		7DB8CCE723BE83F9005400C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE623BE83F9005400C8 /* SceneDelegate.swift */; };
+		7DB8CCE223BE83F9005400C8 /* BoringTasksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE123BE83F9005400C8 /* BoringTasksApp.swift */; };
 		7DB8CCE923BE83F9005400C8 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE823BE83F9005400C8 /* TaskList.swift */; };
 		7DB8CCEB23BE83F9005400C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEA23BE83F9005400C8 /* ContentView.swift */; };
 		7DB8CCED23BE83FC005400C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */; };
 		7DB8CCF023BE83FC005400C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEF23BE83FC005400C8 /* Preview Assets.xcassets */; };
-		7DB8CCF323BE83FC005400C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */; };
 		7DB8CCFD23BF4ADC005400C8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */; };
 		7DBA8BF823CA90EA0050C559 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DBA8BFA23CA90EA0050C559 /* Localizable.strings */; };
 		7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */; };
@@ -64,19 +63,18 @@
 		7D03674723CA7696001FA622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D03674D23CA774A001FA622 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		7D0F996123D493900003D5F7 /* Boring Tasks.help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Boring Tasks.help"; sourceTree = "<group>"; };
+		7D1732C62B06260300729B36 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskItem.swift; path = "/Users/muratcorlu/works/boring-tasks/Boring Tasks/TaskItem.swift"; sourceTree = "<absolute>"; };
+		7D1732C72B06260300729B36 /* TaskActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskActivity.swift; path = "/Users/muratcorlu/works/boring-tasks/Boring Tasks/TaskActivity.swift"; sourceTree = "<absolute>"; };
 		7D31990A23BF8BF700D03649 /* ItemEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditView.swift; sourceTree = "<group>"; };
 		7D31993C23C0070A00D03649 /* ListEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditView.swift; sourceTree = "<group>"; };
 		7D719AB623CD19EC002BEBE1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7D719AB823CD1A1E002BEBE1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boring Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DB8CCE423BE83F9005400C8 /* Boring_Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boring_Tasks.xcdatamodel; sourceTree = "<group>"; };
-		7DB8CCE623BE83F9005400C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7DB8CCE123BE83F9005400C8 /* BoringTasksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringTasksApp.swift; sourceTree = "<group>"; };
 		7DB8CCE823BE83F9005400C8 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		7DB8CCEA23BE83F9005400C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DB8CCEF23BE83FC005400C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7DB8CCF223BE83FC005400C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Boring Tasks.entitlements"; sourceTree = "<group>"; };
 		7DB8CCFC23BF4ADC005400C8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7DBA8BF923CA90EA0050C559 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -138,20 +136,19 @@
 			children = (
 				7D0F996123D493900003D5F7 /* Boring Tasks.help */,
 				7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */,
-				7DB8CCE123BE83F9005400C8 /* AppDelegate.swift */,
-				7DB8CCE623BE83F9005400C8 /* SceneDelegate.swift */,
+				7DB8CCE123BE83F9005400C8 /* BoringTasksApp.swift */,
 				7DB8CCE823BE83F9005400C8 /* TaskList.swift */,
 				7DB8CCEA23BE83F9005400C8 /* ContentView.swift */,
+				7D1732C62B06260300729B36 /* TaskItem.swift */,
+				7D1732C72B06260300729B36 /* TaskActivity.swift */,
 				7D31990A23BF8BF700D03649 /* ItemEditView.swift */,
 				7D31993C23C0070A00D03649 /* ListEditView.swift */,
-				7DB8CCE323BE83F9005400C8 /* Boring_Tasks.xcdatamodeld */,
 				7DCC3B2523C4CD8300CB8FBF /* ListSwipeActions.swift */,
 				7D03673923C8C0E8001FA622 /* InfoPlist.strings */,
 				7D03672B23C8BBC0001FA622 /* Localizable.strings */,
 				7D03673D23C8CD18001FA622 /* Localizable.stringsdict */,
 				7D719AB623CD19EC002BEBE1 /* DetailView.swift */,
 				7D719AB823CD1A1E002BEBE1 /* MasterView.swift */,
-				7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */,
 				7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */,
 				7DB8CCEE23BE83FC005400C8 /* Preview Content */,
 			);
@@ -233,7 +230,7 @@
 				};
 			};
 			buildConfigurationList = 7DB8CCD923BE83F9005400C8 /* Build configuration list for PBXProject "Boring Tasks" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -265,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DB8CCF323BE83FC005400C8 /* LaunchScreen.storyboard in Resources */,
 				7D0F996223D493900003D5F7 /* Boring Tasks.help in Resources */,
 				7D03672923C8BBC0001FA622 /* Localizable.strings in Resources */,
 				7DB8CCF023BE83FC005400C8 /* Preview Assets.xcassets in Resources */,
@@ -296,11 +292,11 @@
 				7D31993D23C0070A00D03649 /* ListEditView.swift in Sources */,
 				7D31990B23BF8BF700D03649 /* ItemEditView.swift in Sources */,
 				7DB8CCEB23BE83F9005400C8 /* ContentView.swift in Sources */,
-				7DB8CCE223BE83F9005400C8 /* AppDelegate.swift in Sources */,
-				7DB8CCE523BE83F9005400C8 /* Boring_Tasks.xcdatamodeld in Sources */,
+				7D1732C92B06260400729B36 /* TaskActivity.swift in Sources */,
+				7D1732C82B06260400729B36 /* TaskItem.swift in Sources */,
+				7DB8CCE223BE83F9005400C8 /* BoringTasksApp.swift in Sources */,
 				7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */,
 				7D719AB923CD1A1E002BEBE1 /* MasterView.swift in Sources */,
-				7DB8CCE723BE83F9005400C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,14 +327,6 @@
 				7D03673A23C8C0EA001FA622 /* tr */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7DB8CCF123BE83FC005400C8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DB8CCF223BE83FC005400C8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		7DBA8BFA23CA90EA0050C559 /* Localizable.strings */ = {
@@ -515,22 +503,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Boring Tasks/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Boring Tasks";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.muratcorlu.BoringTasks;
 				PRODUCT_NAME = "Boring Tasks";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -540,22 +532,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Boring Tasks/Boring Tasks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Boring Tasks/Preview Content\"";
 				DEVELOPMENT_TEAM = UDCL858977;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Boring Tasks/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Boring Tasks";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.muratcorlu.BoringTasks;
 				PRODUCT_NAME = "Boring Tasks";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
@@ -590,19 +586,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7DB8CCE323BE83F9005400C8 /* Boring_Tasks.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7DB8CCE423BE83F9005400C8 /* Boring_Tasks.xcdatamodel */,
-			);
-			currentVersion = 7DB8CCE423BE83F9005400C8 /* Boring_Tasks.xcdatamodel */;
-			path = Boring_Tasks.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7DB8CCD623BE83F9005400C8 /* Project object */;
 }
