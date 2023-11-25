@@ -19,7 +19,7 @@
 		7D31993D23C0070A00D03649 /* ListEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31993C23C0070A00D03649 /* ListEditView.swift */; };
 		7D719AB723CD19EC002BEBE1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D719AB623CD19EC002BEBE1 /* DetailView.swift */; };
 		7D719AB923CD1A1E002BEBE1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D719AB823CD1A1E002BEBE1 /* MasterView.swift */; };
-		7DB8CCE223BE83F9005400C8 /* BoringTasksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE123BE83F9005400C8 /* BoringTasksApp.swift */; };
+		7DB8CCE223BE83F9005400C8 /* Boring_TasksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE123BE83F9005400C8 /* Boring_TasksApp.swift */; };
 		7DB8CCE923BE83F9005400C8 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCE823BE83F9005400C8 /* TaskList.swift */; };
 		7DB8CCEB23BE83F9005400C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEA23BE83F9005400C8 /* ContentView.swift */; };
 		7DB8CCED23BE83FC005400C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */; };
@@ -70,7 +70,7 @@
 		7D719AB623CD19EC002BEBE1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7D719AB823CD1A1E002BEBE1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		7DB8CCDE23BE83F9005400C8 /* Boring Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boring Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DB8CCE123BE83F9005400C8 /* BoringTasksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringTasksApp.swift; sourceTree = "<group>"; };
+		7DB8CCE123BE83F9005400C8 /* Boring_TasksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boring_TasksApp.swift; sourceTree = "<group>"; };
 		7DB8CCE823BE83F9005400C8 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		7DB8CCEA23BE83F9005400C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7DB8CCEC23BE83FC005400C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			children = (
 				7D0F996123D493900003D5F7 /* Boring Tasks.help */,
 				7DB8CCFA23BF4AD9005400C8 /* Boring Tasks.entitlements */,
-				7DB8CCE123BE83F9005400C8 /* BoringTasksApp.swift */,
+				7DB8CCE123BE83F9005400C8 /* Boring_TasksApp.swift */,
 				7DB8CCE823BE83F9005400C8 /* TaskList.swift */,
 				7DB8CCEA23BE83F9005400C8 /* ContentView.swift */,
 				7D1732C62B06260300729B36 /* TaskItem.swift */,
@@ -294,7 +294,7 @@
 				7DB8CCEB23BE83F9005400C8 /* ContentView.swift in Sources */,
 				7D1732C92B06260400729B36 /* TaskActivity.swift in Sources */,
 				7D1732C82B06260400729B36 /* TaskItem.swift in Sources */,
-				7DB8CCE223BE83F9005400C8 /* BoringTasksApp.swift in Sources */,
+				7DB8CCE223BE83F9005400C8 /* Boring_TasksApp.swift in Sources */,
 				7DCC3B2623C4CD8300CB8FBF /* ListSwipeActions.swift in Sources */,
 				7D719AB923CD1A1E002BEBE1 /* MasterView.swift in Sources */,
 			);

@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct BoringTasksApp: App {
+struct Boring_TasksApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
